@@ -22,8 +22,10 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh 'sudo mkdir -p /var/www/html/'
+
                 // Deploy to the server or web server
-                sh 'cp -r * /var/www/html/'
+                sh 'sudo cp -r * /var/www/html/'
             }
         }
     }
