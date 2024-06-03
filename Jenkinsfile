@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the repository
-                git url: 'https://your-git-repo-url.git', branch: 'main'
+                git url: 'https://github.com/saiumac/JENKIN.git', branch: 'main'
             }
         }
         stage('Build') {
