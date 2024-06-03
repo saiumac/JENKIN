@@ -10,7 +10,7 @@ pipeline {
         stage('Publish HTML') {
             steps {
                 // Assuming your HTML file is located at the root of the repository
-                publishHTML reports: 'index.html'
+                publishHTML reportDir: 'index.html'
             }
         }
     }
