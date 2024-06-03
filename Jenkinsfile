@@ -1,22 +1,29 @@
 pipeline {
     agent any
+
     stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the repository
+                git url: 'https://your-git-repo-url.git', branch: 'main'
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Building...'
-                // Add build steps here
+                // Install any dependencies if needed
+                echo 'No build steps needed for plain HTML'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
-                // Add test steps here
+                // Perform any testing if needed
+                echo 'No tests defined for plain HTML'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
-                // Add deploy steps here
+                // Deploy to the server or web server
+                sh 'cp -r * /var/www/html/'
             }
         }
     }
