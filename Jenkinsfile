@@ -2,15 +2,28 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout code') {
+        stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/saiumac/JENKIN.git'
+                // Checkout the repository from the main branch
+                git url: 'https://your-git-repo-url.git', branch: 'main'
             }
         }
-        stage('Publish HTML') {
+        stage('Build') {
             steps {
-                // Assuming your HTML file is located at the root of the repository
-                publishHTML reportDir: 'index.html'
+                // Install any dependencies if needed
+                echo 'No build steps needed for plain HTML'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Perform any testing if needed
+                echo 'No tests defined for plain HTML'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Deploy to the server or web server
+                sh 'cp -r * /var/www/html/'
             }
         }
     }
